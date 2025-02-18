@@ -27,7 +27,11 @@ export class BCryptUtil {
     const hasNumber = /\d/.test(password);
     const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
     const hasMinimalChars = password.length >= this.minimalCharacters;
-    const isEmptyOrNull = password.length >= 1 || password == "" || password == null
+    const isEmptyOrNull = password.length == 0 || password == "" || password == null
+
+    if (isEmptyOrNull) {
+      throw new PasswordException("Password does not be empty or null")
+    }
 
     if (!hasMinimalChars) {
       throw new PasswordException(
