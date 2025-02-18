@@ -1,4 +1,4 @@
-# M2C Digital - Teste Backend Senior
+# M2C Digital - Teste Backend Senior [ EM PRODUÇÃO ]
 
 Este repositório contém a implementação de uma aplicação backend em NodeJS utilizando NestJS, juntamente com um consumidor RabbitMQ em NodeJS, Rust e Go Lang. A aplicação utiliza PostgreSQL para dados relacionais e MongoDB para dados não relacionais.
 
@@ -81,5 +81,6 @@ Este repositório contém a implementação de uma aplicação backend em NodeJS
 
 1. Clone o repositório:
    ```sh
-   git clone <URL_DO_REPOSITORIO>
+   git clone [<URL_DO_REPOSITORIO>](https://github.com/douglas-dreer/yggdrasil-server)
    cd <NOME_DO_REPOSITORIO>
+2. https://web.postman.co/workspace/54603e3a-4b7e-4689-82c4-4e90e257d5dc/documentation/1246389-1772028b-231a-41bf-88c8-096dec247a79
