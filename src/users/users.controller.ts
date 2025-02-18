@@ -7,6 +7,7 @@ import {UsersService} from './users.service';
 import {UpdateUserDto} from './dto/update-user.dto';
 import {UserDTO} from './dto/user.dto';
 import {StatusType} from '../enum/status.type';
+import {ResponseDto} from "../companies/dto/response.dto";
 
 @ApiTags('Users')
 @Controller('users')
@@ -63,7 +64,7 @@ export class UsersController {
     }
   })
   async findAll(@Res() res: Response): Promise<Response<IUser[]>> {
-    return res.status(HttpStatus.OK).json(await this.userService.listUser());
+    return res.status(HttpStatus.OK).json(await this.userService.listUsers());
   }
 
   @Get(':status/status')
@@ -83,7 +84,7 @@ export class UsersController {
     }
   })
   async findAllByStatus(@Param('status') status: StatusType, @Res() res: Response): Promise<Response<IUser[]>> {
-    return res.status(HttpStatus.OK).json(await this.userService.listUserByStatus(status));
+    return res.status(HttpStatus.OK).json(await this.userService.listUsersByStatus(status));
   }
 
   @Get(':id')
@@ -183,8 +184,8 @@ export class UsersController {
       }
     }
   }) // Resposta de sucesso
-  async delete(@Param('id') id: string, @Res() res: Response<string>) {
+  async delete(@Param('id') id: string, @Res() res: Response<ResponseDto>) {
     await this.userService.removeUser(id);
-    return res.status(HttpStatus.OK).json('User deleted successfully.');
+    return res.status(HttpStatus.OK).json( new ResponseDto(200, "Company has deleted with successful"));
   }
 }
